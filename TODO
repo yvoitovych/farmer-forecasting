@@ -1,0 +1,9 @@
+Granger test -> statsmodels.tsa.stattools.grangercausalitytests
+Cointegration Test -> statsmodels.tsa.vector_ar.vecm.coint_johansen
+Impulse responce function -> statsmodels.tsa.vector_ar.irf.IRAnalysis
+Multi-step causality ?
+AIC, BIC -> statsmodels
+Instanteneous causality -> statsmodels.tsa.vector_ar.vecm.VECMResults.test_inst_causality
+Constant depth window vs Quantiles as a features vs Sparsity with LASSO VAR
+MGARCH -> pypi mgarch ([хз, виглядає не дуже]), R rmgarch (має бути заєбісь)
+VAR, VARX, VARIMAX, -> statsmodels
