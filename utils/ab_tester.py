@@ -18,4 +18,10 @@ class ABTester:
 
     def test_instanteneous_causality(self):
         pass
-    
+
+    def test_adf(self):
+        pass
+
+    def test_kpss(self):
+        pass
+

@@ -18,3 +18,6 @@ def _print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 
     # Print New Line on Complete
     if iteration == total: 
         print()
+
+def show_acf_plot(self):
+        pass
