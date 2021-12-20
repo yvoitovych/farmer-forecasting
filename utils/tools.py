@@ -1,3 +1,7 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import acf
+
 def _print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
     """
     Call in a loop to create terminal progress bar
@@ -19,5 +23,6 @@ def _print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 
     if iteration == total: 
         print()
 
-def show_acf_plot(self):
+def show_acf_plot(time_series: pd.Series):
+
         pass

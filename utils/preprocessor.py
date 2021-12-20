@@ -3,12 +3,12 @@ import pandas as pd
 import numpy as np
 from typing import Tuple
 from copy import deepcopy
-
+from sklearn.preprocessing import StandardScaler
 
 class LOBPreprocessor:
     VWAP = 'VWAP'
 
-    def __init__(self, path='data/lob_data.csv') -> None:
+    def __init__(self, path:str='data/lob_data.csv') -> None:
         logging.basicConfig(level=logging.INFO)
         self.__df_data = pd.read_csv(path, dtype=np.float64)
         self.__len = len(self.__df_data)
@@ -31,7 +31,7 @@ class LOBPreprocessor:
     def __all_cols(self):
         return self.__df_data.columns
 
-    def diff_time_series(self, order=1) -> pd.DataFrame:
+    def diff_time_series(self, order:int=1) -> pd.DataFrame:
         diff_data = deepcopy(self.__df_data)
         for _ in range(order):
             temp_df = pd.DataFrame()
@@ -64,11 +64,16 @@ class LOBPreprocessor:
 
         
 
-    def train_test_split(self, train_frac=0.8) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    def train_test_split(self, train_frac: float =0.8) -> Tuple[pd.DataFrame, pd.DataFrame]:
         sep_idx = int(train_frac*self.__len)
         return self.__df_data[:sep_idx], self.__df_data[sep_idx:]
   
+    @staticmethod
+    def normalize(time_series_data : pd.DataFrame):
+        scaler = StandardScaler()
+        normalized_time_series = scaler.fit_transform(time_series_data)
+        return normalized_time_series, scaler
     
-    def run(self):
+    def run(self) -> None:
         self.add_vwap()
         self.diff_time_series(1)
