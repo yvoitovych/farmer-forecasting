@@ -7,3 +7,5 @@ Instanteneous causality -> statsmodels.tsa.vector_ar.vecm.VECMResults.test_inst_
 Constant depth window vs Quantiles as a features vs Sparsity with LASSO VAR
 MGARCH -> pypi mgarch ([хз, виглядає не дуже]), R rmgarch (має бути заєбісь)
 VAR, VARX, VARIMAX, -> statsmodels
+Augmented Dickey–Fuller test -> statsmodels
+KPSS test -> statsmodels
