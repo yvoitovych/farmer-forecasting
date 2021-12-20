@@ -24,5 +24,4 @@ def _print_progress_bar (iteration, total, prefix = '', suffix = '', decimals = 
         print()
 
 def show_acf_plot(time_series: pd.Series):
-
-        pass
+    pass
