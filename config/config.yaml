@@ -1,0 +1,92 @@
+project: trade
+task: regression
+devices:
+  - cuda:0
+
+train:
+  path: '/home/danylokolinko/farmer-forcasting/data/lob_data.csv'
+  seq_length: 20
+#    - '/common/danylokolinko/camera/dataset_v3_7/dataset_v3_7_train.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_2/dataset_v3_2_train.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_4/dataset_v3_4_train.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_5/dataset_v3_5_train.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_6/dataset_v3_6_train.csv'
+
+val:
+  path: '/home/danylokolinko/farmer-forcasting/data/lob_data.csv'
+  seq_length: 20
+#    - '/common/danylokolinko/camera/dataset_v3_2/dataset_v3_2_test.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_4/dataset_v3_4_test.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_5/dataset_v3_5_test.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_6/dataset_v3_6_test.csv'
+#    - '/common/danylokolinko/camera/dataset_v3_7/dataset_v3_7_test.csv'
+
+batch_size: 100
+
+#metrics: ['f1score']
+model:
+  lr: 0.00005
+  clip: 0.5
+
+
+
+
+
+mode: train
+
+train_file: train.txt
+
+valid_file: val.txt
+
+dataset: brats
+
+model_name: TransBTS
+
+input_C: 4
+
+input_H: 240
+
+input_W: 240
+
+input_D: 160
+
+crop_H: 128
+
+crop_W: 128
+
+crop_D: 128
+
+output_D: 155
+
+# Training Information
+lr: 0.0002, type=float)
+
+weight_decay: 1e-5, type=float)
+
+amsgrad: True
+
+criterion: softmax_dice
+
+num_class: 4
+
+seed: 1000
+
+no_cuda: False
+
+gpu: 0
+
+num_workers: 16
+
+accum_iter: 4
+
+start_epoch: 0
+
+end_epoch: 100
+
+save_freq: 5
+
+resume:
+
+load: True
+
+local_rank: 0
